@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A2E"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header: Start/Stop + Status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp">
+
+            <Button
+                android:id="@+id/btn_start_stop"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="START"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xruns: 0"
+                android:textColor="#AAAAAA"
+                android:paddingStart="12dp" />
+
+            <Button
+                android:id="@+id/btn_bypass"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="BYPASS"
+                android:backgroundTint="#607D8B"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- VU Meters -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IN"
+                android:textColor="#AAAAAA" />
+
+            <ProgressBar
+                android:id="@+id/vu_in"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_weight="1"
+                android:max="100"
+                android:progressTint="#4CAF50" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OUT"
+                android:textColor="#AAAAAA"
+                android:paddingStart="8dp" />
+
+            <ProgressBar
+                android:id="@+id/vu_out"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_weight="1"
+                android:max="100"
+                android:progressTint="#E94560" />
+        </LinearLayout>
+
+        <!-- Master: Gain + Volume -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gain"
+                android:textColor="#CCCCCC"
+                android:width="50dp" />
+
+            <SeekBar
+                android:id="@+id/seek_gain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="100" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vol"
+                android:textColor="#CCCCCC"
+                android:paddingStart="8dp" />
+
+            <SeekBar
+                android:id="@+id/seek_volume"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="100" />
+        </LinearLayout>
+
+        <!-- Presets -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PRESETS"
+            android:textColor="#E94560"
+            android:textSize="14sp"
+            android:paddingTop="8dp" />
+
+        <RadioGroup
+            android:id="@+id/preset_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <RadioButton
+                android:id="@+id/preset_clean"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="Clean"
+                android:textSize="11sp"
+                android:textColor="#CCCCCC"
+                android:buttonTint="#E94560" />
+
+            <RadioButton
+                android:id="@+id/preset_overdrive"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="OD"
+                android:textSize="11sp"
+                android:textColor="#CCCCCC"
+                android:buttonTint="#E94560" />
+
+            <RadioButton
+                android:id="@+id/preset_distortion"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="Dist"
+                android:textSize="11sp"
+                android:textColor="#CCCCCC"
+                android:buttonTint="#E94560" />
+
+            <RadioButton
+                android:id="@+id/preset_fuzz"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="Fuzz"
+                android:textSize="11sp"
+                android:textColor="#CCCCCC"
+                android:buttonTint="#E94560" />
+
+            <RadioButton
+                android:id="@+id/preset_postrock"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="Post"
+                android:textSize="11sp"
+                android:textColor="#CCCCCC"
+                android:buttonTint="#E94560" />
+
+            <RadioButton
+                android:id="@+id/preset_wall"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="Wall"
+                android:textSize="11sp"
+                android:textColor="#CCCCCC"
+                android:buttonTint="#E94560" />
+        </RadioGroup>
+
+        <!-- Distortion Card -->
+        <LinearLayout
+            android:id="@+id/card_distortion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213E"
+            android:padding="8dp"
+            android:layout_marginBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="DISTORTION"
+                    android:textColor="#E94560"
+                    android:textSize="14sp" />
+                <Switch
+                    android:id="@+id/switch_dist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seek_drive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100" />
+        </LinearLayout>
+
+        <!-- EQ Card -->
+        <LinearLayout
+            android:id="@+id/card_eq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213E"
+            android:padding="8dp"
+            android:layout_marginBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="EQ"
+                    android:textColor="#E94560"
+                    android:textSize="14sp" />
+                <Switch
+                    android:id="@+id/switch_eq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Delay Card -->
+        <LinearLayout
+            android:id="@+id/card_delay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213E"
+            android:padding="8dp"
+            android:layout_marginBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="DELAY"
+                    android:textColor="#E94560"
+                    android:textSize="14sp" />
+                <Switch
+                    android:id="@+id/switch_delay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seek_delay_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100" />
+        </LinearLayout>
+
+        <!-- Reverb Card -->
+        <LinearLayout
+            android:id="@+id/card_reverb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213E"
+            android:padding="8dp"
+            android:layout_marginBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="REVERB"
+                    android:textColor="#E94560"
+                    android:textSize="14sp" />
+                <Switch
+                    android:id="@+id/switch_reverb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seek_reverb_mix"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100" />
+        </LinearLayout>
+
+        <!-- Chorus Card -->
+        <LinearLayout
+            android:id="@+id/card_chorus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213E"
+            android:padding="8dp"
+            android:layout_marginBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="CHORUS"
+                    android:textColor="#E94560"
+                    android:textSize="14sp" />
+                <Switch
+                    android:id="@+id/switch_chorus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Shimmer Card -->
+        <LinearLayout
+            android:id="@+id/card_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#16213E"
+            android:padding="8dp"
+            android:layout_marginBottom="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SHIMMER"
+                    android:textColor="#E94560"
+                    android:textSize="14sp" />
+                <Switch
+                    android:id="@+id/switch_shimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
