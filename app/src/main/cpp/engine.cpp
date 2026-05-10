@@ -99,7 +99,7 @@ static aaudio_data_callback_result_t on_output(
              sin.rms, sin.peak, sin.dc_offset, sin.clip_count, sin.zcr,
              sin.band_energy[0], sin.band_energy[1], sin.band_energy[2], sin.band_energy[3],
              sin.band_energy[4], sin.band_energy[5], sin.band_energy[6], sin.band_energy[7],
-             sin.thd_estimate, sin.snr, sin.noise_floor);
+             sin.thd_estimate, sin.snr_db, sin.noise_floor_db);
         LOGI("ANA_OUT rms=%.4f pk=%.4f dc=%.4f clips=%d zcr=%.3f "
              "bands=%.3f,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f "
              "thd=%.2f snr=%.1fdB dyn=%.1fdB xruns=%d "
@@ -107,7 +107,7 @@ static aaudio_data_callback_result_t on_output(
              sout.rms, sout.peak, sout.dc_offset, sout.clip_count, sout.zcr,
              sout.band_energy[0], sout.band_energy[1], sout.band_energy[2], sout.band_energy[3],
              sout.band_energy[4], sout.band_energy[5], sout.band_energy[6], sout.band_energy[7],
-             sout.thd_estimate, sout.snr, sout.dynamic_range, g_fx.xruns,
+             sout.thd_estimate, sout.snr_db, sout.dynamic_range_db, g_fx.xruns,
              g_fx.gate_on, g_fx.comp_on, g_fx.eq_on, g_fx.dist_on,
              g_fx.chorus_on, g_fx.phaser_on, g_fx.tremolo_on,
              g_fx.delay_on, g_fx.reverb_on, g_fx.shimmer_on,
@@ -477,15 +477,15 @@ Java_com_guitarfx_audio_AudioBridge_nativeGetStats(JNIEnv *env, jobject thiz) {
     stats[2] = sin.dc_offset;
     stats[3] = (float)sin.clip_count;
     stats[4] = sin.thd_estimate;
-    stats[5] = sin.snr;
-    stats[6] = sin.noise_floor;
+    stats[5] = sin.snr_db;
+    stats[6] = sin.noise_floor_db;
     stats[7] = sout.rms;
     stats[8] = sout.peak;
     stats[9] = sout.dc_offset;
     stats[10] = (float)sout.clip_count;
     stats[11] = sout.thd_estimate;
-    stats[12] = sout.snr;
-    stats[13] = sout.dynamic_range;
+    stats[12] = sout.snr_db;
+    stats[13] = sout.dynamic_range_db;
     // Output band energies
     for (int i = 0; i < 8; i++) stats[14 + i] = sout.band_energy[i];
     stats[22] = (float)g_fx.xruns;
