@@ -1,5 +1,7 @@
 # GuitarFX Pro - 全功能吉他工作站
 
+> 立志做好国产的手机创作生态应用
+
 ## Context
 
 CLI效果器原型验证了荣耀X70手机音频链路：
@@ -130,6 +132,38 @@ USB Input → Noise Gate → Compressor → EQ → Overdrive/Distortion/Fuzz
 - CPU优化
 - 长时间稳定性测试
 - 开源发布（GPL许可证）
+
+## 长期目标：复刻 Cubasis
+
+参考 Cubasis 的功能，逐步扩展为完整移动端 DAW。
+
+### 开源参考项目
+
+| 项目 | 星数 | 语言 | 许可证 | 参考价值 |
+|------|------|------|--------|---------|
+| [Stargate DAW](https://github.com/stargatedaw/stargate) | 700+ | C/C++ | GPL | 最完整的Android DAW，多轨混音、内置合成器/效果器、MIDI、波形编辑，已上架Google Play。整体架构首选参考 |
+| [Hydrogen](https://github.com/hydrogen-music/hydrogen) | 1.3k+ | C++ | GPL | 专业鼓机+音序器，Pattern-based编程、采样加载、swing/人性化节奏、MIDI。鼓机模块首选参考 |
+| [LMMS](https://github.com/lmms/lmms) | 8k+ | C++ | GPL | 开源FL Studio替代品，Piano roll、自动化、效果器链、混音器。UI和功能设计参考 |
+| [Ardour](https://github.com/Ardour/ardour) | 4k+ | C++ | GPL | 开源DAW金标准，专业混音引擎、routing、automation。混音器/录音引擎架构参考 |
+| [PocketDAW](https://github.com/ferluht/pocketdaw) | - | Kotlin/C++ | - | Android DAW，模块化合成器架构 |
+| [DawRio](https://github.com/ParsleyJ/dawrio) | - | Kotlin | - | 实验性Android DAW |
+| [openDAW](https://github.com/andremichelle/openDAW) | - | TypeScript | - | Web DAW，下一代架构设计，UI/UX参考 |
+| [Tracktion Engine](https://github.com/Tracktion/tracktion_engine) | 1k+ | C++ | GPL/Commercial | 纯C++ DAW引擎，可嵌入，JUCE框架。引擎架构参考 |
+
+### Cubasis 功能对标
+
+| Cubasis 功能 | 对应开源参考 | GuitarFXPro 计划 |
+|-------------|-------------|-----------------|
+| 多轨录音/混音 | Stargate, Ardour | Phase 3 录音 + 混音器 |
+| 鼓机/音序器 | Hydrogen | Phase 4 鼓机 |
+| MIDI Piano Roll | LMMS, Stargate | 长期目标 |
+| 内置合成器 | Stargate, PocketDAW | 长期目标（已预留合成器模块） |
+| 效果器插件 | DaisySP（已集成） | 已完成 |
+| 调音器 | 已有YIN | Phase 2 已完成 |
+| Loop Station | 已有8层叠录 | Phase 5 已完成 |
+| 智能音色匹配 | KissFFT（已集成） | Phase 9 |
+| Micro Tuner | - | 可参考 Stargate |
+| 采样器 | Hydrogen | 可参考 Hydrogen |
 
 ## 开发环境
 
