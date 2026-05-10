@@ -20,6 +20,8 @@ add_library(guitarfx SHARED
         DaisySP/Filters/svf.cpp
         DaisySP/Dynamics/limiter.cpp
         DaisySP/Synthesis/oscillator.cpp
+        kissfft/kiss_fft.cpp
+        kissfft/kiss_fftr.cpp
 )
 
 target_include_directories(guitarfx PRIVATE
@@ -28,6 +30,7 @@ target_include_directories(guitarfx PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/hal
         ${CMAKE_CURRENT_SOURCE_DIR}/DaisySP
         ${CMAKE_CURRENT_SOURCE_DIR}/DaisySP/Utility
+        ${CMAKE_CURRENT_SOURCE_DIR}/kissfft
 )
 
 target_link_libraries(guitarfx
